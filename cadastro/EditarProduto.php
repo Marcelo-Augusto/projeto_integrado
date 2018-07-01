@@ -48,9 +48,6 @@ if (isset($_POST[editar_dados])) {
     } else {
         $enablePop = 0;
     }
-    
-    echo 'enable: '.$enable.' post: '.$_POST[enable];
-    echo '<br>enablePop: '.$enablePop.' post: '.$_POST[enablePop];
 
     if (isset($_POST[photo_change]) && $_POST[photo_change] != "") {
         if (isset($vetor->src_photo) && $vetor->src_photo != "") {

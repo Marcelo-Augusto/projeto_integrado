@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cardig - O seu cardápio digital</title>
+        <link rel="shortcut icon" type="image/png" href="../Imagens/logo.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="js/bootstrap.min.js">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--necessario para tudo com bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!--necessario para dropdown-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script>
+            function auto_grow() {
+                var element = document.getElementById("editor_description");
+                element.style.height = "5px";
+                element.style.height = (element.scrollHeight)+"px";
+            }
+
+            function ajusta_tamanho(){
+                var ed_nome = document.getElementById("editor_name");
+                var ed_preco = document.getElementById("editor_preco");
+                var ed_description = document.getElementById("editor_description");
+                auto_grow(ed_nome);
+                auto_grow(ed_preco);
+                auto_grow(ed_description);
+            }
+
+        </script>
+        <style>
+
+            /*destaca um editor quando eh passado o mouse por cima*/
+            .editor:hover{
+                box-shadow:0 4px 6px rgba(0,0,0,0.1); 
+            }
+
+            /*dah um destaque ainda maior quando o editor recebe o foco*/
+            .editor:focus{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+
+            /*estido da foto do produto*/
+            #image_product {
+                width: 100%;
+                height: 100%;
+                padding: 5px;
+            }
+
+            /*estilo da imagem de remover o produto*/
+            #image_remove_product{
+                width: 100%;
+                padding: 5px;
+                vertical-align: middle;
+            }
+
+            /*estilo do botao de alterar a foto do produto*/
+            #button_change_product_photo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #555;
+                color: white;
+                font-size: 16px;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: center;
+                display: none;
+            }
+
+            /*mostar o botao de alterar o produto quando é passado o mouse por cima dele*/
+            #button_change_product_photo:hover {
+                display: inline-block;
+            }
+
+            /*quando o mouse é passado por cima da foto do produto, mostrar o botao de alterar a foto*/
+            #image_product:hover + #button_change_product_photo {
+                display: inline-block;
+            }
+
+            /*estilo do editor do nome do produto*/
+            #editor_name{
+                font-size: 26px;
+                background: none;
+                border: none;
+                border-color: transparent;
+                width: 100%;
+                transition:box-shadow 0.5s ease;
+                border-radius:3px;
+                margin-bottom: 10px;
+                padding: 5px;
+                color: #444444;
+            }
+
+            #editor_preco{
+                font-size: 16px;
+                background: none;
+                border: none;
+                border-color: transparent;
+                width: 100%;
+                transition:box-shadow 0.5s ease;
+                border-radius:3px;
+                margin-bottom: 10px;
+                padding: 5px;
+                color: #444444;
+            }
+
+            /*estilo do editor da descricao do produto*/
+            #editor_description {
+                width:100%;
+                display:block;
+                max-width:100%;
+                border-radius:3px;
+                padding: 5px;
+                transition:box-shadow 0.5s ease;
+                background: none;
+                border: none;
+                border-color: transparent;
+                height: 100%;
+                resize: none;
+                margin-bottom: 10px;
+                color: #444444;
+            }
+
+            #category_dropdown{
+                width: 100%;
+                height: 100%;
+            }
+
+            #button_dropdown_category{
+                width: 80%;
+                height: 100%;
+                background: rgba(0,0,0,0);
+                color:#444444; 
+            }
+
+            #ul_dropdown_category{
+                width: 80%;
+                margin-left: 10%;
+            }
+
+            .a_dropdown_category{
+                text-align: center;
+            }
+
+            #div_button_new_product{
+                text-align: right;
+            }
+
+            #button_new_product{
+                height: 100%;
+                background: #FFBC49;
+            }
+
+            #div_panel_product{
+                background: #FFBC49;
+                border-radius: 4px;
+            }
+
+        </style>
+    </head>
+
+    <body onLoad="ajusta_tamanho();">
+
+        <!--header-->
+        <nav class="navbar navbar-expand-sm my-nav" style="border-radius: 0px;">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./cadastro.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">Sair</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand">
+                <img src="../Imagens/logo.png" class="float-right" width="7%" alt="Cardig">
+            </a>
+        </nav>
+
+        <br>
+
+        <!--dropdown e botao de criar novo produto-->
+        <div class="container">
+            <div class="row">
+
+                <!--dropdown-->
+                <div class="col-sm-9 col-md-9 col-lg-9" style="text-align: center;">
+                    <div id="category_dropdown" class="dropdown" >
+                        <button id="button_dropdown_category" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Populares
+                            </button>
+                        <ul id="ul_dropdown_category" class="dropdown-menu">
+                            <li><a href="#" class="a_dropdown_category">Populares</a></li>
+                            <li><a href="#" class="a_dropdown_category">Acompanhamentos</a></li>
+                            <li><a href="#" class="a_dropdown_category">Tradicionais</a></li>
+                            <li><a href="#" class="a_dropdown_category">Especiais</a></li>
+                            <li><a href="#" class="a_dropdown_category">Bebidas</a></li>
+                        </ul>
+                    </div>  
+                </div>
+
+                <!--botao de criar novo produto-->
+                <div id="div_button_new_product" class="col-sm-3 col-md-3 col-lg-3">
+                    <button id="button_new_product" type="button" class="btn btn-warning">Criar novo produto</button>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <!--card do produto-->
+        <div class="container">
+            <div class="panel panel-default">
+                <div id="div_panel_product" class="panel-body">
+                    <div class= "row">
+
+                        <!--nome e descricao-->
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+                            <!--nome do produto-->
+                            <input id="editor_name" class="editor" data-toggle="tooltip" data-placement="right" title="Clique para editar!" type="text" placeholder="Insira o nome do produto aqui" value="Do Avesso"/>
+
+                            <!--preço do produto-->
+                            <input id="editor_preco" class="editor" data-toggle="tooltip" data-placement="right" title="Clique para editar!" type="text" placeholder="Insira o preço aqui" value=""/>
+
+                            <!--descricao do produto-->
+                            <textarea id="editor_description" class="editor" data-toggle="tooltip" data-placement="right" title="Clique para editar!" name="Text1" cols="40" onkeyup="auto_grow(this)" placeholder="Insira a descrição do produto aqui">Habúrguer de 150g regado em nosso molho espacial secreto, no pão com bacon, catupiry e mussarela por fora. Servido com batatas fritas e ovo frito. </textarea>
+
+                        </div>
+
+                        <!--foto do produto-->
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img id="image_product" src="../Imagens/DoAvesso.png" alt="Snow">
+                            <button id="button_change_product_photo" class="btn">Alterar</button>
+                        </div>
+
+                        <!--remover produto-->
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                            <img id="image_remove_product" src="../Imagens/close_icon.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--footer-->
+        <br><br>
+        <footer class="mojFooter">
+            <div class="footertexto py-3">
+                © 2018 Cardig. All rights reserved.
+            </div>
+        </footer>
+
+    </body>
+</html>

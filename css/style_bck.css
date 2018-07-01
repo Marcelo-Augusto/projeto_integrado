@@ -1,0 +1,89 @@
+/* Positioning Elements */
+ 
+html {
+  height: 100%;
+}
+body {
+  min-width: 500px;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  position: relative;
+  font-family: "Tahoma", Sans Serif;
+}
+.container {
+  width: 85%; /* If the width is 85%, we'll still have 15% of the page outside the container */
+  padding: 0 7.5%; /* 0 refers to top and bottom paddings and 7.5% to left and right paddings */
+  clear: both; /* Prevents that the float property "escapes" to other elements */
+}
+header {
+  height: 50px; /* Size of the header */
+}
+header h1 a { /* Selecting the link element inside de h1 */
+  text-decoration: none; /* Removes the underline */
+}
+header h1 { /* Selecting the h1 element which is under the header*/
+  font-size: 22px;
+  margin: 0;
+  padding: 10px 14px; /* 10px to both bottom and top paddings and 14px to both left and right paddings */
+  float: left; /* Pushes all the h1 block to the left */
+}
+header nav {
+  float: right; /* Pushes all the nav block to the right */
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block; /* All li elements on the nav will be displayed on the same horizontal line */
+  margin-top: 15px; /* Gives 15px of distance from the top of the page */
+}
+nav ul li a {
+  text-decoration: none; /* Removes the underline */
+  padding: 10px 14px; /* 10px to both bottom and top paddings and 14px to both left and right */
+                      /* paddings, giving the link a look of a button */
+}
+article {
+  width: 400px;
+  margin: 0px auto; /* Here, we're saying that this box will have no margin on top and on the bottom*/
+                    /* and we're also setting the sides' margin to be automatically calculated equally*/
+  margin-top: 50px; /*Giving some space on the top of the article*/
+  padding: 0px 20px; /* Setting 0px of padding on the top and on the bottom and padding of */
+                     /* 20px on the left and on right */
+}
+form {
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+footer {
+  position: absolute; /* The element has an absolute position inside its container */
+  bottom: 0px; /* Distance from the bottom */
+  text-align: center;
+  width: 100%; 
+}
+ 
+/* Adding Color and Extra Styles */
+ 
+header, footer {
+  background-color: salmon;
+  color: white;
+}
+header a, /* General link tag */
+header a:link, /* Links that have not been visited */
+header a:visited /* Links that have already been visited */,
+header a:active { /* Behaviour triggered when the link is clicked */
+  color: white;
+}
+nav ul li a {
+  border: 1px solid white;
+}
+article {
+  border: solid 1px #999;
+  -webkit-border-radius: 12px; 
+     -moz-border-radius: 12px; 
+          border-radius: 12px;
+}

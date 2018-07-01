@@ -1,0 +1,96 @@
+select {
+	text-align: center;
+	color: black !important;
+	border-color: orange !important;
+}
+
+select:focus {
+	box-shadow: none !important;
+}
+
+select option {
+	background-color: orange !important;
+	color: black;
+}
+
+#create {
+	background-color: orange;
+	border: none;
+	border-color: orange;
+	color: white;
+}
+
+#listItem {
+	border-color: orange !important;
+	color: black !important;
+}
+
+
+#listItem:hover {
+	background-color: orange !important;
+}
+
+.navbar {
+	background-color: #404040;
+	font-size: 17px;
+	height: 75px;
+	padding: 0 !important;
+	border-radius: 0px;
+}
+
+.navbar img, .navbar li {
+	margin: 20px;
+}
+
+
+.my-nav .nav-link{
+	color: orange;
+}
+.navbar-nav a {
+	padding: 25px 0;
+}
+
+.footertexto {
+	position: fixed;
+	height: 45px;
+	bottom: 5px;
+	width: 100%;
+	background-color: #404040;
+	color: white;
+	text-align: left;
+	font-size: 12px;
+	margin-bottom: -10px;
+	padding: 20px;
+	min-height: 5px;
+}
+
+#nome, #description {
+	border-color: orange;
+	color: black;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 50px !important;
+}
+
+#buttonAdd {
+	margin-top: 32px;
+}
+
+#value, #price_description {
+	border-color: orange !important;
+	color: black;
+}
+
+#meal_photo {
+	margin-bottom: 10px;
+}
+
+.listPrice {
+	margin-top: 10px !important;
+}

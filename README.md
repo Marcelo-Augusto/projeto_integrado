@@ -19,6 +19,6 @@ Sistema web desenvolvido para o projeto integrado das matérias Desenvolvimento 
 * http://{ip_servidor}/projeto_integrado-master/cadastro : Abre a página de listagem dos produtos por categoria, para gerenciamento dos produtos (cadastro, alteração e remoção).
 
 ### Autenticação
-Para poder gerenciar os produtos é necessário realizar uma autenticação. Por padrão, o arquivo cardapio.sql vem com um usuário cadastrado. Para gerenciar os produtos com esse usuário, basta preencher os campos seguintes campos com os seguintes valores:
+Para poder gerenciar os produtos é necessário realizar uma autenticação. Por padrão, o arquivo cardapio.sql vem com um usuário cadastrado. Para gerenciar os produtos com esse usuário, basta preencher os campos seguintes campos com os valores:
 * usuário: Super
 * senha: 12345
